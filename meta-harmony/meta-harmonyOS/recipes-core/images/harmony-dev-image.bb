@@ -5,6 +5,11 @@ SECTION = "dev"
 
 
 IMAGE_FEATURES += "tools-debug tools-sdk"
-IMAGE_INSTALL:append= " vim mqttclient paho-mqtt-cpp boost"
+IMAGE_INSTALL:append= " vim mqttclient"
 
-IMAGE_ROOTFS_EXTRA_SPACE = "4194304"
+platoon_conf() {
+   echo "$(git ls-remote https://github.com/MohamedSa3eed/yocto-platoon.git HEAD | cut -b 1-10)-dev" > ${IMAGE_ROOTFS}/etc/platoon.conf
+}
+addtask platoon_conf 
+
+ROOTFS_POSTINSTALL_COMMAND += "platoon_conf;"
