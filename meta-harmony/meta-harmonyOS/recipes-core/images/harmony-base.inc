@@ -6,8 +6,5 @@ LICENSE = "MIT"
 
 COMPATIBLE_MACHINE = "^rpi$"
 
-// Add packages ssh-server-openssh and debug-tweaks to the image
 IMAGE_FEATURES += "ssh-server-openssh debug-tweaks"
-
-// Add packagegroup-rpi-test to the image
 IMAGE_INSTALL:append = " packagegroup-rpi-test"
