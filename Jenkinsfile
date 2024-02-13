@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Check if repositories exist
-                    def reposExist = fileExists("$YOCTO_HOME/poky") && fileExists("$YOCTO_HOME/meta-openembedded") && fileExists("$YOCTO_HOME/meta-raspberrypi") && fileExists("$YOCTO_HOME/yocto-platoon")
+                    def reposExist = fileExists("$YOCTO_HOME/poky") && fileExists("$YOCTO_HOME/meta-openembedded") && fileExists("$YOCTO_HOME/meta-raspberrypi")
 
                     if (!reposExist) {
                         // Clone Yocto repositories if they don't exist
