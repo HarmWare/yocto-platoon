@@ -18,14 +18,13 @@ pipeline {
                         sh "git clone -b kirkstone git://git.yoctoproject.org/poky.git $YOCTO_HOME/poky"
                         sh "git clone -b kirkstone git://git.openembedded.org/meta-openembedded $YOCTO_HOME/meta-openembedded"
                         sh "git clone -b kirkstone git://git.yoctoproject.org/meta-raspberrypi $YOCTO_HOME/meta-raspberrypi"
-                        sh "git clone -b dev https://github.com/MohamedSa3eed/yocto-platoon.git $YOCTO_HOME/yocto-platoon"
                         // Initialize build environment before building the image
                         sh '''#!/bin/bash
                         source $YOCTO_HOME/poky/oe-init-build-env build-platoon
                         bitbake-layers add-layer ../meta-openembedded/meta-oe
                         bitbake-layers add-layer $YOCTO_HOME/meta-raspberrypi
-                        bitbake-layers add-layer $YOCTO_HOME/yocto-platoon/meta-harmony/meta-apps
-                        bitbake-layers add-layer $YOCTO_HOME/yocto-platoon/meta-harmony/meta-harmonyOS
+                        bitbake-layers add-layer $YOCTO_HOME/meta-harmony/meta-apps
+                        bitbake-layers add-layer $YOCTO_HOME/meta-harmony/meta-harmonyOS
                         '''
                         // Modify local.conf
                         sh "echo 'MACHINE = \"raspberrypi3-64\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
