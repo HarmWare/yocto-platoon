@@ -31,13 +31,6 @@ pipeline {
                         sh "echo 'MACHINE = \"raspberrypi3-64\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
                         sh "echo 'DISTRO = \"harmonyOS\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
                         sh "echo 'PREFERRED_PROVIDER_virtual/kernel = \"linux-harmony\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
-                    } else {
-                        // Fetch the latest changes in each repository
-                        sh "cd $YOCTO_HOME/poky && git pull"
-                        sh "cd $YOCTO_HOME/meta-openembedded && git pull"
-                        sh "cd $YOCTO_HOME/meta-raspberrypi && git pull"
-                        sh "cd $YOCTO_HOME/yocto-platoon && git pull"
-                    }
                 }
             }
         }
