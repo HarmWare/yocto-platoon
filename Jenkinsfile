@@ -60,7 +60,7 @@ pipeline {
     post {
         success {
             echo 'Yocto Initialization Pipeline: Success!'
-            // Success actions...
+            // Success actions....
         }
 
         failure {
