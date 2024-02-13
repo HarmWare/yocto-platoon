@@ -31,6 +31,7 @@ pipeline {
                         sh "echo 'MACHINE = \"raspberrypi3-64\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
                         sh "echo 'DISTRO = \"harmonyOS\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
                         sh "echo 'PREFERRED_PROVIDER_virtual/kernel = \"linux-harmony\"' >> $YOCTO_HOME/build-platoon/conf/local.conf"
+                    }
                 }
             }
         }
