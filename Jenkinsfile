@@ -18,8 +18,6 @@ pipeline {
 
     environment {
         YOCTO_HOME = "/var/lib/jenkins/workspace/harmony-pipeline"
-        GITHUB_REPOSITORY = "USERNAME/REPOSITORY_NAME" // Replace with your repository URL
-        GITHUB_CREDENTIALS_ID = "your_github_credentials_id" // Replace with your credential ID
     }
 
     stages {
@@ -38,7 +36,7 @@ pipeline {
                         // Initialize build environment before building the image
                         sh '''#!/bin/bash
                             source $YOCTO_HOME/poky/oe-init-build-env build-platoon
-                            bitbake-layers add-layer ../meta-openembedded/meta-oe
+                            bitbake-layers add-layer $YOCTO_HOME/meta-openembedded/meta-oe
                             bitbake-layers add-layer $YOCTO_HOME/meta-raspberrypi
                             bitbake-layers add-layer $YOCTO_HOME/meta-harmony/meta-apps
                             bitbake-layers add-layer $YOCTO_HOME/meta-harmony/meta-harmonyOS
@@ -70,8 +68,6 @@ pipeline {
 
     post {
 
-
-        
         success {
             echo 'Yocto Initialization Pipeline: Success!'
 	      setBuildStatus("Build succeeded", "SUCCESS");
