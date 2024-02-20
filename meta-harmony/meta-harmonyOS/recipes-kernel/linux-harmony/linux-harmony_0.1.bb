@@ -1,7 +1,9 @@
+# Define the kernel version and branch to use
 LINUX_VERSION ?= "6.1.77"
 LINUX_RPI_BRANCH ?= "rpi-6.1.y"
 LINUX_RPI_KMETA_BRANCH ?= "yocto-6.1"
 
+# Default commit id for the machine and meta layers
 SRCREV_machine = "77fc1fbcb5c013329af9583307dd1ff3cd4752aa"
 SRCREV_meta = "43d1723dbe0ce7b341cf32feeb35ecbe6b0ce29a"
 
@@ -18,4 +20,5 @@ require recipes-kernel/linux/linux-raspberrypi.inc
 
 KERNEL_DTC_FLAGS += "-@ -H epapr"
 
+# update the kernel version to include the harmony extension
 LINUX_VERSION_EXTENSION = "-harmony"
