@@ -25,13 +25,14 @@ pipeline {
             steps {
                 script {
                     // Check if repositories exist
-                    def reposExist = fileExists("$YOCTO_HOME/poky") && fileExists("$YOCTO_HOME/meta-openembedded") && fileExists("$YOCTO_HOME/meta-raspberrypi")
+                    def reposExist = fileExists("$YOCTO_HOME/poky") && fileExists("$YOCTO_HOME/meta-openembedded") && fileExists("$YOCTO_HOME/meta-raspberrypi") && fileExists("$YOCTO_HOME/meta-qt5")
 
                     if (!reposExist) {
                         // Clone Yocto repositories if they don't exist
                         sh "git clone -b kirkstone git://git.yoctoproject.org/poky.git $YOCTO_HOME/poky"
                         sh "git clone -b kirkstone git://git.openembedded.org/meta-openembedded $YOCTO_HOME/meta-openembedded"
                         sh "git clone -b kirkstone git://git.yoctoproject.org/meta-raspberrypi $YOCTO_HOME/meta-raspberrypi"
+                        sh "git clone -b kirkstone https://github.com/meta-qt5/meta-qt5.git  $YOCTO_HOME/meta-qt5"
 
                         // Initialize build environment before building the image
                         sh '''#!/bin/bash
@@ -40,6 +41,9 @@ pipeline {
                             bitbake-layers add-layer $YOCTO_HOME/meta-raspberrypi
                             bitbake-layers add-layer $YOCTO_HOME/meta-harmony/meta-apps
                             bitbake-layers add-layer $YOCTO_HOME/meta-harmony/meta-harmonyOS
+                            bitbake-layers add-layer $YOCTO_HOME/meta-qt5
+
+
                         '''
 
                         // Modify local.conf
