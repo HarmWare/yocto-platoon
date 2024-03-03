@@ -22,3 +22,7 @@ KERNEL_DTC_FLAGS += "-@ -H epapr"
 
 # update the kernel version to include the harmony extension
 LINUX_VERSION_EXTENSION = "-harmony"
+
+# Edit the cmdline 
+CMDLINE:remove = "root=/dev/mmcblk0p2 rootfstype=ext4"
+CMDLINE:append = "root=/dev/nfs ip=dhcp nfsroot=192.168.1.11:/home/mohamed/nfsroot,v3,tcp"
