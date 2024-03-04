@@ -1,0 +1,9 @@
+[Unit]
+Description=startup script for the platoon system
+
+[Service]
+ExecStart=/usr/bin/sh -c "harmony_rpi 192.168.1.11 && qt-app"
+
+[Install]
+WantedBy=multi-user.target
+

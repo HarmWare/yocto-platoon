@@ -5,7 +5,7 @@ SECTION = "dev"
 
 
 IMAGE_FEATURES += "tools-debug tools-sdk"
-IMAGE_INSTALL:append = " vim mqttclient qt-app u-boot"
+IMAGE_INSTALL:append = " vim mqttclient qt-app u-boot auto-start"
 
 # Add the platoon.conf file to the image
 platoon_conf() {
