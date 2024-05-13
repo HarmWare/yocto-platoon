@@ -33,3 +33,6 @@ root_auto_login() {
 
 # add the function to be executed after the rootfs is created
 ROOTFS_POSTPROCESS_COMMAND += "root_auto_login;"
+
+IMAGE_INSTALL:append = " pulseaudio pulseaudio-module-dbus-protocol pulseaudio-server pulseaudio-module-bluetooth-discover pulseaudio-module-bluetooth-policy pulseaudio-module-bluez5-device pulseaudio-module-bluez5-discover alsa-utils alsa-plugins"
+IMAGE_INSTALL:append = " gstreamer1.0-plugins-good gstreamer1.0-plugins-base gstreamer1.0-plugins-ugly"
