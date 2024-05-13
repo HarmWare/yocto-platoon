@@ -1,0 +1,7 @@
+fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs
+setenv ipaddr 192.168.1.2
+setenv serverip 192.168.1.11
+tftp ${kernel_addr_r} uImage
+tftp ${fdt_addr} bcm2710-rpi-3-b.dtb
+if test ! -e mmc 0:1 uboot.env; then saveenv; fi;
+@@KERNEL_BOOTCMD@@ ${kernel_addr_r} - ${fdt_addr}
