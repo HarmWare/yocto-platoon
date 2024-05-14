@@ -20,8 +20,11 @@ FILES:${PN} += "${includedir}"
 FILES:${PN} += "${libdir}"
 FILES:${PN} += "${docdir}"
 
-do_compile() {
+do_configure() {
         ./configure --host=${TARGET_SYS} --prefix=${prefix}
+}
+
+do_compile() {
         oe_runmake 
 }
 
