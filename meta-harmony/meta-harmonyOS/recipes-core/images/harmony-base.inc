@@ -7,16 +7,12 @@ LICENSE = "MIT"
 COMPATIBLE_MACHINE = "^rpi$"
 
 IMAGE_FEATURES += "ssh-server-openssh debug-tweaks"
-IMAGE_INSTALL:append = " packagegroup-rpi-test"
+IMAGE_INSTALL:append = " packagegroup-rpi-test ipopt casadi"
 
 # fonts required for the QT application
 IMAGE_INSTALL:append = "\
-    ttf-dejavu-sans \
-    ttf-dejavu-sans-mono \
-    ttf-dejavu-sans-condensed \
-    ttf-dejavu-serif \
-    ttf-dejavu-serif-condensed \
-    ttf-dejavu-common \
+    ttf-ubuntu-sans \
+    ttf-ubuntu-mono \
 "
 
 # enable auto login for the root user on the serial console and tty1
