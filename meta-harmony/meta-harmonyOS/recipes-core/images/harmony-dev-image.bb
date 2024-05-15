@@ -5,7 +5,7 @@ SECTION = "dev"
 
 
 IMAGE_FEATURES += "tools-debug tools-sdk"
-IMAGE_INSTALL:append = " vim mqttclient auto-start python3-pip python3-pygobject python3-dbus python3-numpy qt-app"
+IMAGE_INSTALL:append = " vim mqttclient auto-start python3-pip python3-pygobject python3-dbus python3-numpy qt-app qtquickcontrols2 qtquickcontrols qtgraphicaleffects"
 
 # Add the platoon.conf file to the image
 platoon_conf() {

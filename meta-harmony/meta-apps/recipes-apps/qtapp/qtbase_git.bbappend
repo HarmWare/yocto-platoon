@@ -1,1 +1,1 @@
-PACKAGECONFIG += "fontconfig"
+PACKAGECONFIG += "fontconfig accessibility"
